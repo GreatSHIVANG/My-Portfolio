@@ -24,12 +24,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Add animation effect to experience section
     const experienceSection = document.querySelector('#experience .experience-content');
-    experienceSection.style.opacity = 0;
-    window.addEventListener('scroll', () => {
-        const rect = experienceSection.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
-            experienceSection.style.transition = 'opacity 1s';
-            experienceSection.style.opacity = 1;
-        }
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                experienceSection.style.transition = 'opacity 1s';
+                experienceSection.style.opacity = 1;
+            }
+        });
+    }, {
+        threshold: 0.1
     });
+
+    observer.observe(experienceSection);
 });

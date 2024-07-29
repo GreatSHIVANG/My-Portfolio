@@ -45,9 +45,33 @@ nav ul li a:hover {
   background-color: #ddd;
 }
 
+@media (max-width: 768px) {
+  nav ul {
+      flex-direction: column;
+      background: #fff;
+      position: fixed;
+      top: 60px;
+      width: 100%;
+      display: none;
+  }
+
+  nav ul.show {
+      display: flex;
+  }
+
+  nav ul li {
+      margin: 0;
+      text-align: center;
+  }
+
+  nav ul li a {
+      padding: 10px;
+  }
+}
+
 section {
   padding: 20px;
-  margin-top: 60px;
+  margin-top: 50px;
   text-align: justify;
 }
 
@@ -81,11 +105,7 @@ section {
   margin-top: -80px;
 }
 
-.about-content,
-.education-carousel,
-.skills-content,
-.experience-content,
-.contact-content {
+.about-content, .education-carousel, .skills-content, .experience-content, .contact-content {
   text-align: left;
   color: #333;
   background-color: #fff;
@@ -179,52 +199,4 @@ section {
 
 .contact-icon:hover {
   transform: scale(1.1);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  header {
-    padding: 10px;
-  }
-
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  nav ul li {
-    margin: 10px 0;
-  }
-
-  .cover-photo {
-    height: 300px;
-  }
-
-  .profile-image {
-    width: 80%;
-    max-width: 200px;
-  }
-
-  .education-item {
-    flex: 0 0 90%;
-  }
-
-  .skills-content h3 {
-    margin-top: 10px;
-  }
-
-  .internship-details ul li {
-    padding-left: 15px;
-  }
-
-  .contact-content {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .contact-icon {
-    width: 30px;
-    height: 30px;
-  }
 }

@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const navbar = document.getElementById('navbar');
+    const navLinks = document.querySelectorAll('nav ul li a');
     let lastScrollY = window.scrollY;
     let ticking = false;
 
@@ -21,6 +22,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         lastScrollY = window.scrollY;
     };
+
+    // Toggle mobile nav
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+    });
 
     // Add animation effect to experience section
     const experienceSection = document.querySelector('#experience .experience-content');
